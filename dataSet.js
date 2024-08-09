@@ -14,7 +14,8 @@ var dataSet = [
     ['MK-3475-158', 'MSI-H', 'Rak dróg żółciowych', 'url'],
     ['MK1084-001', 'KRAS G12C', 'Rak jelita grubego', 'url'],
     ['MK-3475-158', 'MSI-H', 'Rak dróg żółciowych', 'url'],
-    ['MK1084-001', 'KRAS G12C', 'Rak jelita grubego', 'url'],
-    ['MK-3475-158', 'MSI-H', 'Rak dróg żółciowych', 'url'],
-    ['MK1084-001', 'KRAS G12C', 'Rak jelita grubego', 'url'],
+    ['Wieloośrodkowe badanie fazy I prowadzone metodą otwartej próby bez randomizacji dotyczące skutków upośledzenia czynności wątroby w przypadku stosowania tesetakselu u pacjentów z zaawansowanymi guzami litymi', 'KRAS G12C', 'Rak jelita grubego', 'url'],
+    ['Wieloośrodkowe badanie fazy I prowadzone metodą otwartej próby bez randomizacji dotyczące skutków upośledzenia czynności wątroby w przypadku stosowania tesetakselu u pacjentów z zaawansowanymi guzami litymi', 'Wieloośrodkowe badanie fazy I prowadzone metodą otwartej próby bez randomizacji dotyczące skutków upośledzenia czynności wątroby w przypadku stosowania tesetakselu u pacjentów z zaawansowanymi guzami litymi', 'Rak dróg żółciowych', 'url'],
+    ['MK1084-001', 'Wieloośrodkowe, prowadzone metodą otwartej próby badanie fazy II, oceniające skuteczność i bezpieczeństwo stosowania trastuzumabu derukstekanu (T-DXd, DS-8201a) w leczeniu wybranych nowotworów wykazujących ekspresję receptora ludzkiego naskórkowego czynnika wzrostu typu 2 (HER2) (DESTINY-PanTumor02)', 'Rak jelita grubego', 'url'],
+    ['MK1084-001', 'KRAS G12C', 'Rak jelita grubego Rak jelita grubego Rak jelita grubego Rak jelita grubego', 'url'],
 ];
