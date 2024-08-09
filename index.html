@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table of Contents</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Style for Back to Top button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            /* Initially hidden */
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1000;
+            /* Ensure it appears above other content */
+        }
+
+        #backToTop:hover {
+            background-color: #0056b3;
+            /* Darker shade on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mt-4">Table of Contents</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><a href="#filterTable">Filter Table</a></li>
+            <li class="list-group-item"><a href="#filterTableColsHidden">Filter Table with Hidden Columns</a></li>
+            <li class="list-group-item"><a href="#filterTablePaginated">Filter Table with Pagination</a></li>
+            <li class="list-group-item"><a href="#filterTablePaginatedAndUrls">Filter Table with Pagination and URLs</a>
+            </li>
+        </ul>
+
+        <iframe id="filterTable" class="mb-4" style="width: 100%; height: 1200px;" frameborder="0"></iframe>
+        <iframe id="filterTableColsHidden" class="mb-4" style="width: 100%; height: 1200px;" frameborder="0"></iframe>
+        <iframe id="filterTablePaginated" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+        <iframe id="filterTablePaginatedAndUrls" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+
+        <!-- Back to Top button -->
+        <button id="backToTop" class="btn">Back to Top</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#filterTable').attr('src', "filterTable.html");
+            $('#filterTableColsHidden').attr('src', "filterTableColsHidden.html");
+            $('#filterTablePaginated').attr('src', "filterTablePaginated.html");
+            $('#filterTablePaginatedAndUrls').attr('src', "filterTablePaginatedAndUrls.html");
+
+
+            // Smooth scrolling for TOC links
+            $('a[href^="#"]').on('click', function (event) {
+                event.preventDefault(); // Prevent default anchor click behavior
+                const target = this.hash; // Get the target element's ID
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top // Animate scroll to the target element
+                }, 800); // Duration of the scroll in milliseconds
+            });
+
+            // Back to Top button functionality
+            const backToTopButton = $('#backToTop');
+
+            $(window).scroll(function () {
+                // Show or hide the button based on scroll position
+                if ($(this).scrollTop() > 200) {
+                    backToTopButton.fadeIn();
+                } else {
+                    backToTopButton.fadeOut();
+                }
+            });
+
+            backToTopButton.on('click', function () {
+                $('html, body').animate({ scrollTop: 0 }, 800); // Smooth scroll to top
+            });
+        });
+    </script>
+</body>
+
+</html>

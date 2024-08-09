@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatable with Filters and Pagination</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .pagination {
+            margin-top: 10px;
+        }
+
+        .pagination button {
+            margin: 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Datatable with Filters and Pagination</h1>
+        <div class="form-group">
+            <label for="filters">Wybierz nowotwór:</label>
+            <select name="filters" id="filters" class="form-control">
+                <option value="">Wszystkie</option>
+                <!-- Options generated dynamically -->
+            </select>
+        </div>
+
+        <table id="datatable" class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Badanie</th>
+                    <th>Mutacje</th>
+                    <th>Nowotwór</th>
+                    <th>Dodatkowe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows generated dynamically -->
+            </tbody>
+        </table>
+
+        <div class="pagination" id="pagination">
+            <!-- Pagination generated dynamically -->
+        </div>
+    </div>
+
+    <!-- Include the dataSet.js file -->
+    <script src="dataSet.js"></script>
+
+    <script>
+        // Data will be filtered based on third element ([2])
+        // Urls will be set based on forth element ([3])
+        // var dataSet = [
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MD9720C00001 Petra', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        // ];
+
+        // Pagination setup
+        const itemsPerPage = 5;
+        let currentPage = 1;
+
+        // Populate table with data
+        function populateTable(data) {
+            const tableBody = document.querySelector('#datatable tbody');
+            tableBody.innerHTML = ''; // Clear existing rows to avoid duplication
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedData = data.slice(start, end); // Slice data to paginate
+            paginatedData.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach((cell, index) => {
+                    const td = document.createElement('td');
+                    if (index === 3) { // Check if it's the "Dodatkowe" column
+                        const link = document.createElement('a');
+                        link.href = cell; // Set the URL from the data
+                        link.textContent = 'Idź do Badania'; // Set the link text
+                        td.appendChild(link); // Add link to the cell
+                    } else {
+                        td.textContent = cell; // Set text for other cells
+                    }
+                    tr.appendChild(td); // Add cell to row
+                });
+                tableBody.appendChild(tr); // Add row to table
+            });
+            updatePagination(data.length); // Update pagination
+        }
+
+        // Populate the filter options based on data
+        function populateFilterOptions(data) {
+            const filterSelect = document.querySelector('#filters');
+            const uniqueIllnesses = [...new Set(data.map(row => row[2]))]; // Extracts unique from "Nowotwór" column
+            uniqueIllnesses.forEach(illness => {
+                const option = document.createElement('option');
+                option.value = illness;
+                option.textContent = illness;
+                filterSelect.appendChild(option); // Add option to <select>
+            });
+        }
+
+        // Filter table rows
+        function filterTable() {
+            const selectedIllness = document.querySelector('#filters').value;
+            const filteredData = selectedIllness ?
+                dataSet.filter(row => row[2] === selectedIllness) :
+                dataSet; // Filter data based on "Nowotwór" column
+            currentPage = 1; // Reset to first page
+            populateTable(filteredData); // Update the table with filtered data
+        }
+
+        // Update pagination
+        function updatePagination(totalItems) {
+            const paginationDiv = document.getElementById('pagination');
+            paginationDiv.innerHTML = ''; // Clear existing pagination
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', function () {
+                    currentPage = i;
+                    populateTable(dataSet); // Re-populate with current page data
+                });
+                paginationDiv.appendChild(button);
+            }
+        }
+
+        // Initial setup
+        populateTable(dataSet);
+        populateFilterOptions(dataSet);
+
+        // Listen for changes in the filter select
+        document.querySelector('#filters').addEventListener('change', filterTable);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatable with Filters and Hidden Columns</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        /* To hide "Nowotwór" column */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Datatable with Filters and Hidden Columns</h1>
+        <div class="form-group">
+            <label for="filters">Wybierz nowotwór:</label>
+            <select name="filters" id="filters" class="form-control">
+                <option value="">Wszystkie</option>
+                <!-- Options generated dynamically -->
+            </select>
+        </div>
+
+        <table id="datatable" class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Badanie</th>
+                    <th>Mutacje</th>
+                    <th class="hidden">Nowotwór</th> <!-- Hide column -->
+                    <th>Dodatkowe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows generated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include the dataSet.js file -->
+    <script src="dataSet.js"></script>
+
+
+    <script>
+        // Data will be filtered based on third element ([2])
+        // var dataSet = [
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MD9720C00001 Petra', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        //     ['MK-3475-158', 'MSI-H', 'RAK DRÓG ŻÓŁCIOWYCH', 'url'],
+        //     ['MK1084-001', 'KRAS G12C', 'RAK JELITA GRUBEGO', 'url'],
+        // ];
+
+        // Populate table with data
+        function populateTable(data) {
+            const tableBody = document.querySelector('#datatable tbody');
+            tableBody.innerHTML = ''; // Clear existing rows to avoid duplication
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach((cell, index) => {
+                    const td = document.createElement('td');
+                    td.textContent = cell;
+                    // Append the cell only if it is not "Nowotwór" column
+                    if (index !== 2) {
+                        tr.appendChild(td);
+                    }
+                });
+                tableBody.appendChild(tr); // Add row to table
+            });
+        }
+
+        // Populate the filter options based on data
+        function populateFilterOptions(data) {
+            const filterSelect = document.querySelector('#filters');
+            const uniqueIllnesses = [...new Set(data.map(row => row[2]))]; // Extracts unique from "Nowotwór" column
+            uniqueIllnesses.forEach(illness => {
+                const option = document.createElement('option');
+                option.value = illness;
+                option.textContent = illness;
+                filterSelect.appendChild(option); // Add option to <select>
+            });
+        }
+
+        // Filter table rows
+        function filterTable() {
+            const selectedIllness = document.querySelector('#filters').value;
+            const filteredData = selectedIllness ?
+                dataSet.filter(row => row[2] === selectedIllness) :
+                dataSet; // Filter data based on "Nowotwór" column
+            populateTable(filteredData); // Update the table with filtered data
+        }
+
+        // Initial setup
+        populateTable(dataSet);
+        populateFilterOptions(dataSet);
+
+        // Listen for changes in the filter select
+        document.querySelector('#filters').addEventListener('change', filterTable);
+    </script>
+</body>
+
+</html>
