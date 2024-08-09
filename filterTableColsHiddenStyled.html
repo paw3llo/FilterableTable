@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
         body {
             font-family: 'Roboto', Arial, sans-serif;
@@ -28,8 +28,8 @@
 
         h1.table-title {
             text-align: center;
-            font-size: 28px;
-            font-weight: 200;
+            font-size: 52px;
+            font-weight: 300;
             color: #333333;
             margin-bottom: 20px;
         }
@@ -41,7 +41,7 @@
         }
 
         label {
-            font-weight: 500;
+            font-weight: 300;
             color: #333333;
             font-size: 16px;
         }
@@ -113,6 +113,10 @@
             background-color: #f9f9f9;
         }
 
+        tr:hover {
+            background-color:rgba(232, 7, 7, 0.014);
+        }
+
         .hidden {
             display: none;
         }
@@ -120,9 +124,22 @@
         .h-divider {
             width: 100px;
             height: 2px;
-            background-color: rgb(232, 7, 7);
+            background-color: #e80707;
             margin: 0 auto 30px;
         }
+
+        .ft-link {
+            text-decoration: none;
+            color: #e80707;
+            font-weight: 200;
+        }
+
+        .ft-link:hover {
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+
     </style>
 </head>
 
@@ -134,7 +151,7 @@
         <div class="form-group">
             <label for="filters">Wybierz nowotwór, aby zobaczyć dostępne badania:</label>
             <select name="filters" id="filters" class="form-control">
-                <!-- Placeholder option -->
+                <option value="">Szukaj</option>
                 <!-- Options will be generated dynamically here -->
             </select>
         </div>
@@ -149,7 +166,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Initially empty -->
+                <!-- Rows will be generated dynamically here -->
             </tbody>
         </table>
     </div>
@@ -160,7 +177,7 @@
 
         // Initialize Choices.js
         const choices = new Choices('#filters', {
-            placeholder: true,
+            placeholder: false,
             placeholderValue: 'Wybierz',
             itemSelectText: 'Wybierz nowotwór',
             searchEnabled: true
@@ -188,6 +205,7 @@
 
                         if (index === 3) { // If it's the URL column
                             const a = document.createElement('a');
+                            a.className = "ft-link"
                             a.href = cell;
                             a.textContent = "Idź na stronę badania";
                             a.target = "_blank"; // Open link in a new tab
