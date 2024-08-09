@@ -49,10 +49,10 @@
             </li>
         </ul>
 
-        <iframe id="filterTable" class="mb-4" style="width: 100%; height: 1200px;" frameborder="0"></iframe>
-        <iframe id="filterTableColsHidden" class="mb-4" style="width: 100%; height: 1200px;" frameborder="0"></iframe>
-        <iframe id="filterTablePaginated" style="width: 100%; height: 600px;" frameborder="0"></iframe>
-        <iframe id="filterTablePaginatedAndUrls" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+        <iframe id="filterTable" class="mb-4" style="width: 100%; height: 100px;" frameborder="0"></iframe>
+        <iframe id="filterTableColsHidden" class="mb-4" style="width: 100%; height: 100px;" frameborder="0"></iframe>
+        <iframe id="filterTablePaginated" style="width: 100%; height: 100px;" frameborder="0"></iframe>
+        <iframe id="filterTablePaginatedAndUrls" style="width: 100%; height: 100px;" frameborder="0"></iframe>
 
         <!-- Back to Top button -->
         <button id="backToTop" class="btn">Back to Top</button>
@@ -65,6 +65,10 @@
             $('#filterTablePaginated').attr('src', "filterTablePaginated.html");
             $('#filterTablePaginatedAndUrls').attr('src', "filterTablePaginatedAndUrls.html");
 
+            // Adjust iframe height on load
+            $('iframe').on('load', function() {
+                this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+            });
 
             // Smooth scrolling for TOC links
             $('a[href^="#"]').on('click', function (event) {
