@@ -75,7 +75,31 @@ var dataSet = [
     ['MK-3475-158','MS-Stable, TMB>10 mut/Mpz','RAK JELITA CIENKIEGO','https://clinicaltrials.gov/study/NCT02628067'],
     ['MK-3475-158','MS-Stable, TMB>10 mut/Mpz','RAK TARCZYCY','https://clinicaltrials.gov/study/NCT02628067'],
     ['MK-3475-158','MS-Stable, TMB>10 mut/Mpz','RAK SROMU','https://clinicaltrials.gov/study/NCT02628067'],
-
     //Tumor agnostic
-    ['AbbVie M21-404','Znana mutacja w genie MET','Różne rozpoznania','https://clinicaltrials.gov/study/NCT05029882']
+    ['AbbVie M21-404','Znana mutacja w genie MET','Różne rozpoznania','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK DRÓG ŻÓŁCIOWYCH','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK JELITA GRUBEGO','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK NERKI','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK JELITA CIENKIEGO','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK JAJNIKA','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK PĘCHERZA MOCZOWEGO/UROTELIALNY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK PIERSI','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK PŁUCA','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK PROSTATY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK REGIONU SZYI I GŁOWY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK SKÓRY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK SZYJKI MACICY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK TARCZYCY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK TRZONU MACICY','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK TRZUSTKI','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK ŻOŁĄDKA','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','MIĘDZYBŁONIAK','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','MIĘSAKI','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','CZERNIAK','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK KANAŁU ODBYTU','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','GUZ MÓZGU','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK ENDOMETRIUM','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK PRZEŁYKU','https://clinicaltrials.gov/study/NCT05029882'],
+    ['AbbVie M21-404','Znana mutacja w genie MET','RAK SROMU','https://clinicaltrials.gov/study/NCT05029882']
+
 ];
