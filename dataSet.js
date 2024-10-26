@@ -10,7 +10,7 @@ var dataSet = [
     ['MK-3475-158','MSI-H','RAK JELITA CIENKIEGO','https://clinicaltrials.gov/study/NCT02628067'],
     //RAK JAJNIKA
     ['TESARO 4010-01-001','dMMR/MSI-H','RAK JAJNIKA','https://clinicaltrials.gov/study/NCT02715284'],
-    ['IMC-F106C-101','PRAME H-score ≥ 25','RAK JAJNIKA','https://clinicaltrials.gov/study/NCT04262466'],
+    ['IMC-F106C-101','PRAME H-score ≥ 25','RAK JAJNIKA','https://obwf.coi.pl/index.php/2024/10/26/otwarcie-nowych-kohort-w-badaniu-imc-f106c-101/'],
     ['D926UC00001 TROPION','','RAK JAJNIKA','https://www.clinicaltrials.gov/study/NCT05489211'],
     ['D9720C00001 Petra','Mutacja utraty funkcji u BRCA1, BRCA2, PALB2, RAD51C lub RAD51D lub wysoki poziom niestabilności genomowej (bez mutacji utraty funkcji u BRCA1, BRCA2','RAK JAJNIKA','https://clinicaltrials.gov/study/NCT04644068'],
     //RAK PĘCHERZA MOCZOWEGO/UROTELIALNY
@@ -23,7 +23,7 @@ var dataSet = [
     ['MK-1084-001','KRAS G12C','RAK PŁUCA','https://clinicaltrials.gov/study/NCT05067283?id=NCT05067283'],
     ['TESARO 4010-01-001','dMMR/MSI-H','RAK PŁUCA','https://clinicaltrials.gov/study/NCT02715284'],
     ['CLN-619-001/MICA','Mutacja EGFR, rearanżacja ALK','RAK PŁUCA','https://clinicaltrials.gov/study/NCT05117476'],
-    ['IMC-F106C-101','Mutacja EGFR albo rearanżacja ALK lub RET albo fuzja NTRK, PRAME H-Score 100-199 lub PRAME H-Score ≥ 200, status mutacji EGFR, rearanżacji ALK i RET, fuzji NTRK','RAK PŁUCA','https://clinicaltrials.gov/study/NCT04262466'],
+    ['IMC-F106C-101','Mutacja EGFR albo rearanżacja ALK lub RET albo fuzja NTRK, PRAME H-Score 100-199 lub PRAME H-Score ≥ 200, status mutacji EGFR, rearanżacji ALK i RET, fuzji NTRK','RAK PŁUCA','https://obwf.coi.pl/index.php/2024/10/26/otwarcie-nowych-kohort-w-badaniu-imc-f106c-101/'],
     ['AMGEN 404 20220028','','RAK PŁUCA','https://obwf.coi.pl/index.php/2024/10/19/nowe-badanie-w-obwf-2/'],
     ['BNT116-01','','RAK PŁUCA','https://www.clinicaltrials.gov/study/NCT05142189'],
     //RAK PROSTATY
@@ -40,7 +40,7 @@ var dataSet = [
     //RAK TRZONU MACICY
     ['D6900C00001 BlueStar','dodatnia ekspresja B7-H4','RAK TRZONU MACICY','https://clinicaltrials.gov/study/NCT05123482'],
     ['MICA CLN-619-001','','RAK TRZONU MACICY','https://clinicaltrials.gov/study/NCT05117476'],
-    ['IMC-F106C-101','Zaraportować mutację p53, POLE lub MSI/dMMR','RAK TRZONU MACICY','https://clinicaltrials.gov/study/NCT04262466'],
+    ['IMC-F106C-101','Zaraportować mutację p53, POLE lub MSI/dMMR','RAK TRZONU MACICY','https://obwf.coi.pl/index.php/2024/10/26/otwarcie-nowych-kohort-w-badaniu-imc-f106c-101/'],
     //RAK TRZUSTKI
     //RAK ŻOŁĄDKA
     ['MK-3475-158','MSI-H','RAK ŻOŁĄDKA','https://clinicaltrials.gov/study/NCT02628067'],
